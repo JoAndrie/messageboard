@@ -1,0 +1,115 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-bubble {
+    display: flex;
+    margin: 8px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.info-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.chat-text {
+    max-width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+}
+
+.chat-bubble.user1 {
+    justify-content: flex-end;
+    /* User1 bubbles on the right */
+}
+
+.chat-bubble.user2 {
+    justify-content: flex-start;
+    /* User2 bubbles on the left */
+}
+
+.datetime {
+    font-size: 12px;
+    color: gray;
+}
+
+.delete-button {
+    font-size: 12px;
+    background-color: #f97c6e;
+    color: #fff;
+    border: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.delete-button:hover {
+    background-color: #f9301a;
+}
+
+#searchButton:hover {
+    color: #1f4a7c;
+    /* Change the color to a lighter shade on hover */
+    border: 1px solid #1f4a7c;
+}
+
+#userInfoDiv:hover {
+    cursor: pointer;
+}
+
+.info-modal-body {
+    text-align: center;
+    /* Center the contents horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the contents vertically */
+    padding: 20px;
+    /* Add some padding for spacing */
+}
+
+.info-avatar {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    /* Make the image round */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Add a subtle shadow */
+}
+
+.row {
+    margin: 10px 0;
+}
+
+span {
+    font-weight: bold;
+}
+
+.message-content {
+    overflow: hidden;
+    /* Hide overflow content */
+    word-wrap: break-word;
+    /* Wrap long words to the next line */
+}
+
+.message-content:hover {
+    cursor: pointer;
+}
+
+#show-more-div:hover {
+    cursor: pointer;
+}

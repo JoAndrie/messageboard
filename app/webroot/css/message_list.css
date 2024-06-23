@@ -1,0 +1,67 @@
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+.messages-container {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.message-list-header, .message-list-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.message-list-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0078FF;
+}
+.message-thread {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 0;
+}
+.message-thread:last-child {
+    border-bottom: none;
+}
+.message-thread:hover {
+    background: #f9f9f9;
+    cursor: pointer;
+}
+.message-thread .sender-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.message-thread .thread-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.message-thread .thread-info .message-content {
+    flex: 1;
+}
+.message-thread .thread-info .message-time {
+    color: #888;
+    font-size: 12px;
+}
+.modal-body .select2-container .select2-selection--single {
+    height: 42px;
+}
+.modal-footer .btn {
+    min-width: 100px;
+}
+#successAlertDiv {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+#show-more-div, #no-more-div {
+    color: darkblue;
+    cursor: pointer;
+}
