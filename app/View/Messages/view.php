@@ -6,6 +6,10 @@
     flex-direction: column;
 }
 
+textarea {
+  resize: none;
+}   
+
 .chat-bubble {
     display: flex;
     margin: 8px;
@@ -105,11 +109,14 @@
 }
 
 .info-avatar {
-    max-width: 100%;
+    max-width: 100px; /* Adjust size as needed */
     height: auto;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Ensure the image is a block element */
 }
+    
 
 #show-more-div:hover,
 #searchButton:hover,
@@ -154,10 +161,6 @@
             <span id="usernameContainer" class="font-weight-bold ml-5" style="font-weight: bold; font-size : 30px; margin-left: 1em;">
                 <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['name'] : $message_thread[0]['user_1']['name']) : 'User'); ?>
             </span>
-            <span id="emailContainer" class="font-weight-bold ml-5" style="font-weight: bold; font-size : 20px; margin-left: 1em; color : #1f4a7c">
-                (
-                <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['email'] : $message_thread[0]['user_1']['email']) : ''); ?>
-                ) </span>
         </div>
 
         <div>
@@ -267,47 +270,63 @@
     </div>
 </div>
 
-<div class="modal fade" id="userInfoModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md"> <!-- Change modal-lg for a larger modal -->
+<div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="userInfoTitle" style="font-weight : bold; font-size : 30px">
+                <h5 class="modal-title" id="userInfoTitle" style="font-weight: bold; font-size: 30px">
                     User Information
                 </h5>
             </div>
-            <div class="info-modal-body">
-                <img src="<?php echo $this->webroot . $imgUrl; ?>" alt="Profile Picture" class="info-avatar">
+            <div class="modal-body">
                 <div class="row">
-                    <span>
-                        Name:
-                        <strong style="">
-                            <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['name'] : $message_thread[0]['user_1']['name']) : ''); ?>
-                        </strong>
-                    </span>
+                    <div class="col-md-12 text-center"> <!-- Adjust col-md-* as needed -->
+                        <img src="<?php echo $this->webroot . $imgUrl; ?>" alt="Profile Picture" class="info-avatar">
+                    </div>
                 </div>
-                <div class="row">
-                    <span>
-                        Email:
-                        <strong>
-                            <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['email'] : $message_thread[0]['user_1']['email']) : ''); ?>
-                        </strong>
-                    </span>
-                </div>
-                <div class="row">
-                    <span>
-                        Gender:
-                        <strong>
-                            <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['gender'] : $message_thread[0]['user_1']['gender']) : ''); ?>
-                        </strong>
-                    </span>
-                </div>
-                <div class="row">
-                    <span>
-                        Hobby:
-                        <strong>
-                            <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['hobby'] : $message_thread[0]['user_1']['hobby']) : ''); ?>
-                        </strong>
-                    </span>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span>
+                                    Name:
+                                    <strong>
+                                        <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['name'] : $message_thread[0]['user_1']['name']) : ''); ?>
+                                    </strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span>
+                                    Email:
+                                    <strong>
+                                        <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['email'] : $message_thread[0]['user_1']['email']) : ''); ?>
+                                    </strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span>
+                                    Gender:
+                                    <strong>
+                                        <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['gender'] : $message_thread[0]['user_1']['gender']) : ''); ?>
+                                    </strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span>
+                                    Hobby:
+                                    <strong>
+                                        <?php echo (isset($message_thread[0]) ? ($_SESSION['userData']['user_id'] == $message_thread[0]['user_1']['user_id'] ? $message_thread[0]['user_2']['hobby'] : $message_thread[0]['user_1']['hobby']) : ''); ?>
+                                    </strong>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -316,6 +335,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -554,72 +576,72 @@
         });
 
         $("#show-more-div").click(function() {
-    var numberOfBubbles = $("#messages-container").find(".chat-bubble").length;
-    var message_thread_id = message_thread[0]['mt']['message_thread_id'];
-    
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: '/messageboard/messages/show_more_messages',
-        data: {
-            numberOfBubbles: numberOfBubbles,
-            message_thread_id: message_thread_id
-        },
-        success: function(data) {
-            console.log("API Response Data:", data);
-            if (data && data.length > 0) {
-                data.forEach(function(message) {
-                    // Ensure structured data access
-                    var bubbleType = (message.receiver.user_id == user_id ? 'user2' : 'user1');
-                    var profilePicture = webroot + message.sender.img_url;
-                    
-                    var messageContent = message.m.message_content;
-                    if (messageContent.length > 50) {
-                        messageContent = messageContent.slice(0, 50) + '...';
-                    }
-                    
-                    var formattedDate = message[0]['formatted_created_date']; // Ensure correct field name
-                    
-                    // HTML template for chat bubble
-                    var chatBubble = `
-                        <div class="chat-bubble ${bubbleType}" title="click to show more/show less">
-                            <img src="${profilePicture}" alt="Profile Picture" class="user-avatar">
-                            <div class="chat-text">
-                                <p class="message-content">${messageContent}</p>
-                                <span class="datetime">${formattedDate}</span>
-                            </div>
-                            ${bubbleType == 'user1' ? `<button class="delete-button" data-message-id="${message.m.message_id}">x</button>` : ''}
-                        </div>
-                    `;
-                    
-                    var isShortened = true;
-                    chatBubble = $(chatBubble);
-                    
-                    // Toggle message content display
-                    chatBubble.find('.message-content').click(function() {
-                        if (isShortened) {
-                            $(this).text(message.m.message_content);
-                        } else {
-                            $(this).text(messageContent);
-                        }
-                        isShortened = !isShortened;
-                    });
+                var numberOfBubbles = $("#messages-container").find(".chat-bubble").length;
+                var message_thread_id = message_thread[0]['mt']['message_thread_id'];
+                
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: '/messageboard/messages/show_more_messages',
+                    data: {
+                        numberOfBubbles: numberOfBubbles,
+                        message_thread_id: message_thread_id
+                    },
+                    success: function(data) {
+                        console.log("API Response Data:", data);
+                        if (data && data.length > 0) {
+                            data.forEach(function(message) {
+                                // Ensure structured data access
+                                var bubbleType = (message.receiver.user_id == user_id ? 'user2' : 'user1');
+                                var profilePicture = webroot + message.sender.img_url;
+                                
+                                var messageContent = message.m.message_content;
+                                if (messageContent.length > 50) {
+                                    messageContent = messageContent.slice(0, 50) + '...';
+                                }
+                                
+                                var formattedDate = message[0]['formatted_created_date']; // Ensure correct field name
+                                
+                                // HTML template for chat bubble
+                                var chatBubble = `
+                                    <div class="chat-bubble ${bubbleType}" title="click to show more/show less">
+                                        <img src="${profilePicture}" alt="Profile Picture" class="user-avatar">
+                                        <div class="chat-text">
+                                            <p class="message-content">${messageContent}</p>
+                                            <span class="datetime">${formattedDate}</span>
+                                        </div>
+                                        ${bubbleType == 'user1' ? `<button class="delete-button" data-message-id="${message.m.message_id}">x</button>` : ''}
+                                    </div>
+                                `;
+                                
+                                var isShortened = true;
+                                chatBubble = $(chatBubble);
+                                
+                                // Toggle message content display
+                                chatBubble.find('.message-content').click(function() {
+                                    if (isShortened) {
+                                        $(this).text(message.m.message_content);
+                                    } else {
+                                        $(this).text(messageContent);
+                                    }
+                                    isShortened = !isShortened;
+                                });
 
-                    $("#messages-container").prepend(chatBubble);
+                                $("#messages-container").prepend(chatBubble);
+                            });
+                        } else {
+                            $("#show-more-div").hide();
+                            $("#no-more-div").show();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("AJAX Error:", error);
+                        console.log("Status:", status);
+                        console.log("Response Text:", xhr.responseText);
+                        console.log("Response JSON:", xhr.responseJSON);
+                    }
                 });
-            } else {
-                $("#show-more-div").hide();
-                $("#no-more-div").show();
-            }
-        },
-        error: function(xhr, status, error) {
-            console.log("AJAX Error:", error);
-            console.log("Status:", status);
-            console.log("Response Text:", xhr.responseText);
-            console.log("Response JSON:", xhr.responseJSON);
-        }
-    });
-});
+            });
 
 
         function formatCurrentDateTime() {
