@@ -426,7 +426,7 @@ textarea {
                 $("#replyErrorText").text("Message should not be empty.");
             } else {
                 $.ajax({
-                    type: 'post',
+                    type: 'POST',
                     dataType: 'json',
                     url: '/messageboard/messages/send_message',
                     data: {
@@ -559,7 +559,6 @@ textarea {
         });
 
         $("#userInfoDiv").click(function() {
-            console.log("user info clicked!");
             $('#userInfoModal').modal('show');
 
         });
