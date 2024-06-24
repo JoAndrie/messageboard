@@ -214,7 +214,7 @@ textarea {
             <div class="modal-body">
                 <div class="form-group mt-1">
                     <label for="textField">Message:</label>
-                    <textarea class="form-control" id="replyText" style="width: 100%; height: 100px;"></textarea> <!-- Use a <textarea> for a multiline text field -->
+                    <textarea class="form-control" id="replyText" style="width: 100%; height: 100px;"></textarea>
                 </div>
                 <div>
                     <span id="replyErrorText" style="color : red; font-style : italic">
@@ -280,7 +280,7 @@ textarea {
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-12 text-center"> <!-- Adjust col-md-* as needed -->
+                    <div class="col-md-12 text-center"> 
                         <img src="<?php echo $this->webroot . $imgUrl; ?>" alt="Profile Picture" class="info-avatar">
                     </div>
                 </div>
@@ -343,7 +343,6 @@ textarea {
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script>
     $(document).ready(function() {
         $("#no-more-div").hide();

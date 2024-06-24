@@ -42,7 +42,6 @@
 	Router::connect('/delete_message', array('controller' => 'messages', 'action' => 'delete_message'));
 	Router::connect('/message_thread', array('controller' => 'messages', 'action' => 'message_thread'));
 	Router::connect('/delete_message_thread', array('controller' => 'messages', 'action' => 'delete_message_thread'));
-	Router::connect('/messages/get_messages', array('controller' => 'messages', 'action' => 'get_messages'));
 	Router::connect('/search_message', array('controller' => 'messages', 'action' => 'search_message'));
 	Router::connect('/show_more_messages', array('controller' => 'messages', 'action' => 'show_more_messages'));
 
